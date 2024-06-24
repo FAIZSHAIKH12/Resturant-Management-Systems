@@ -10,8 +10,6 @@ class User(db.Model):
     phone=db.Column(db.String(20))
     address=db.Column(db.String(200),nullable=False)
     is_admin=db.Column(db.Boolean,default=False)
-    disabled = db.Column(db.Boolean, default=False, nullable=True)
-    last_login = db.Column(db.Date, nullable=True)
     
     order = db.relationship('Order', backref='user', lazy=True, cascade='all, delete-orphan, delete, save-update')
 

@@ -27,9 +27,7 @@ def upgrade() -> None:
                   sa.Column('email', sa.String(50),nullable=False),
                   sa.Column('_password', sa.String(50),nullable=False),
                   sa.Column('is_admin', sa.Boolean,nullable=False),
-                  sa.Column("last_login", sa.Date(), nullable=True),
-                  sa.Column("disabled", sa.Boolean(),default=False, nullable=True),
-                 sa.PrimaryKeyConstraint("id"),)
+                  sa.PrimaryKeyConstraint("id"),)
 
 
 def downgrade() -> None:
