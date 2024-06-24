@@ -31,7 +31,6 @@ class Login(Resource):
         db.session.add(user)
         db.session.commit()
 
-        # Retrieve and reuse active session id if user is a service account.
         session['user_id']=user.id
 
         
