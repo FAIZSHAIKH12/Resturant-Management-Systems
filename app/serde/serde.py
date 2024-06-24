@@ -9,8 +9,7 @@ class UserSchema(Schema):
     is_admin=fields.Bool(required=True)
     email=fields.Str(required=True)
     password=fields.Str(validate=validate.Regexp(r'^\d{8}$'))
-    disabled = fields.Boolean(dump_only=True)
-    last_login = fields.Date(dump_only=True)
+
 
 class MenuItemSchema(Schema):
     id=fields.Int(dump_only=True)
