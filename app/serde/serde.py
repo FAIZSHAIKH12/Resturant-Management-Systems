@@ -16,7 +16,7 @@ class MenuItemSchema(Schema):
     id=fields.Int(dump_only=True)
     name=fields.Str(required=True)
     desc=fields.Str(required=True)
-    price=fields.Int
+    price=fields.Int()
     availability = fields.Bool(required=True)
 
     

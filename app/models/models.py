@@ -54,6 +54,6 @@ class MenuItem(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(70))
     desc=db.Column(db.String(200),nullable=False)
-    price=db.Column(db.Integer,nullable=False)
+    price=db.Column(db.Integer(),nullable=False)
     availability = db.Column(db.Boolean, default=True)
 
