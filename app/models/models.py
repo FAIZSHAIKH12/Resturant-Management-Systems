@@ -5,7 +5,7 @@ class User(db.Model):
     __tablename__ = "user"
     id=db.Column(db.Integer,primary_key=True)
     name=db.Column(db.String(50),nullable=False)
-    email = db.Column(db.String(50),nullable=False)
+    email = db.Column(db.String(50),unique=True)
     _password = db.Column(db.String(255),nullable=False)
     phone=db.Column(db.String(20))
     address=db.Column(db.String(200),nullable=False)
@@ -31,6 +31,7 @@ class User(db.Model):
         Accept a password and hash the value while comparing the hashed
         value to the password hash contained in the database.
         """
+
         return check_password_hash(self._password, password)
 
 class Order(db.Model):
@@ -40,9 +41,11 @@ class Order(db.Model):
     items_order=db.Column(db.String(60),nullable=False)
     order_id=db.Column(db.Integer)
     total_price=db.Column(db.Float,nullable=False)
-    customer_id=db.Column(db.Integer(),db.ForeignKey('user.id',ondelete='CASCADE',onupdate='CASCADE'))
+    customer_id=db.Column(db.Integer,db.ForeignKey('user.id',ondelete='CASCADE',onupdate='CASCADE'))
     menu_id=db.Column(db.String(50),nullable=False)
     quantity=db.Column(db.String(50),nullable=False)
+
+
     
 
 class MenuItem(db.Model):
