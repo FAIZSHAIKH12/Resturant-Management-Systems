@@ -64,8 +64,10 @@ class MenuView(Access):
         data=MenuItem.query.filter_by(id=id).first()
         db.session.delete(data)
         db.session.commit()
-        return jsonify ({"message":"Menu delete successfully"}),201
+        return "delete"
 
+
+    
  
     
     

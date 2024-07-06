@@ -2,7 +2,7 @@ from marshmallow import Schema, fields, validate
 
 
 class UserSchema(Schema):
-    id=fields.Int(dump_only=True)
+    id=fields.Int(dump_only=False)
     name = fields.Str(validate=validate.Regexp(r'^[a-zA-Z0-9]+$'))
     phone=fields.Str(validate=validate.Regexp(r'^\d{10}$'))
     address=fields.Str(required=True)
